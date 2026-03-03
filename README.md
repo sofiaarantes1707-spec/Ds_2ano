@@ -8,5 +8,4 @@ e conta com estas funções:
 - Multiplicar
 - Comparar números
 - Par e ímpar
-[{5CA90376-4554-43B8-BB76-F433B36C0E01}
-[![An old rock in the desert]{5CA90376-4554-43B8-BB76-F433B36C0E01}](https://github.com/DogMello36/DS_GIT/blob/master/%7B5CA90376-4554-43B8-BB76-F433B36C0E01%7D.png?raw=true)
+![mello]()
