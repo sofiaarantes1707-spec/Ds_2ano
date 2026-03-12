@@ -31,5 +31,27 @@ namespace Menu_Calculos.Formularios
         {
 
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comBotõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void MDI_Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente sair ?",
+                "Saindo...",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+               MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

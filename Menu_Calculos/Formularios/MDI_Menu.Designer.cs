@@ -33,8 +33,11 @@
             this.calculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comBotõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comRadioButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eSpeciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visorUnicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visorUnicoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaCalcOneVisioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculadora00ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.janelasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascatasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horizontalmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,21 +45,15 @@
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desenvolvedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.blocoDeNotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculadoraWindownsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nAvegadorWebToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.novoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -67,7 +64,10 @@
             this.colarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ajudaToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -83,7 +83,7 @@
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1314, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,11 +92,13 @@
             this.calculosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.comBotõesToolStripMenuItem,
             this.comRadioButtonsToolStripMenuItem,
-            this.eSpeciasToolStripMenuItem,
+            this.visorUnicoToolStripMenuItem1,
+            this.novaCalcOneVisioToolStripMenuItem,
+            this.calculadora00ToolStripMenuItem,
             this.toolStripMenuItem1,
             this.sairToolStripMenuItem});
             this.calculosToolStripMenuItem.Name = "calculosToolStripMenuItem";
-            this.calculosToolStripMenuItem.Size = new System.Drawing.Size(93, 32);
+            this.calculosToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
             this.calculosToolStripMenuItem.Text = "Calculos";
             this.calculosToolStripMenuItem.Click += new System.EventHandler(this.calculosToolStripMenuItem_Click);
             // 
@@ -106,26 +108,42 @@
             this.comBotõesToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+B";
             this.comBotõesToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
             this.comBotõesToolStripMenuItem.Text = "Com botões";
+            this.comBotõesToolStripMenuItem.Click += new System.EventHandler(this.comBotõesToolStripMenuItem_Click);
             // 
             // comRadioButtonsToolStripMenuItem
             // 
             this.comRadioButtonsToolStripMenuItem.Name = "comRadioButtonsToolStripMenuItem";
-            this.comRadioButtonsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.comRadioButtonsToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
             this.comRadioButtonsToolStripMenuItem.Text = "Com Radio buttons";
             // 
-            // eSpeciasToolStripMenuItem
+            // visorUnicoToolStripMenuItem1
             // 
-            this.eSpeciasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visorUnicoToolStripMenuItem});
-            this.eSpeciasToolStripMenuItem.Name = "eSpeciasToolStripMenuItem";
-            this.eSpeciasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.eSpeciasToolStripMenuItem.Text = "Especias";
+            this.visorUnicoToolStripMenuItem1.Name = "visorUnicoToolStripMenuItem1";
+            this.visorUnicoToolStripMenuItem1.Size = new System.Drawing.Size(274, 34);
+            this.visorUnicoToolStripMenuItem1.Text = "Visor unico";
             // 
-            // visorUnicoToolStripMenuItem
+            // novaCalcOneVisioToolStripMenuItem
             // 
-            this.visorUnicoToolStripMenuItem.Name = "visorUnicoToolStripMenuItem";
-            this.visorUnicoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.visorUnicoToolStripMenuItem.Text = "Visor unico";
+            this.novaCalcOneVisioToolStripMenuItem.Name = "novaCalcOneVisioToolStripMenuItem";
+            this.novaCalcOneVisioToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
+            this.novaCalcOneVisioToolStripMenuItem.Text = "Nova Calc One Visio";
+            // 
+            // calculadora00ToolStripMenuItem
+            // 
+            this.calculadora00ToolStripMenuItem.Name = "calculadora00ToolStripMenuItem";
+            this.calculadora00ToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
+            this.calculadora00ToolStripMenuItem.Text = "Calculadora 00";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(271, 6);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
+            this.sairToolStripMenuItem.Text = "Sair";
             // 
             // janelasToolStripMenuItem
             // 
@@ -140,19 +158,19 @@
             // cascatasToolStripMenuItem
             // 
             this.cascatasToolStripMenuItem.Name = "cascatasToolStripMenuItem";
-            this.cascatasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.cascatasToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.cascatasToolStripMenuItem.Text = "Cascatas";
             // 
             // horizontalmenteToolStripMenuItem
             // 
             this.horizontalmenteToolStripMenuItem.Name = "horizontalmenteToolStripMenuItem";
-            this.horizontalmenteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.horizontalmenteToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.horizontalmenteToolStripMenuItem.Text = "Horizontalmente";
             // 
             // vErticalmenteToolStripMenuItem
             // 
             this.vErticalmenteToolStripMenuItem.Name = "vErticalmenteToolStripMenuItem";
-            this.vErticalmenteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.vErticalmenteToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.vErticalmenteToolStripMenuItem.Text = "VErticalmente";
             // 
             // ajudaToolStripMenuItem
@@ -167,32 +185,20 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(250, 34);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // desenvolvedoresToolStripMenuItem
             // 
             this.desenvolvedoresToolStripMenuItem.Name = "desenvolvedoresToolStripMenuItem";
-            this.desenvolvedoresToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.desenvolvedoresToolStripMenuItem.Size = new System.Drawing.Size(250, 34);
             this.desenvolvedoresToolStripMenuItem.Text = "Desenvolvedores";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(267, 6);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.sairToolStripMenuItem.Text = "Sair";
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripSeparator1,
             this.toolStripDropDownButton1,
@@ -209,7 +215,7 @@
             this.ajudaToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 33);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1314, 33);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -220,21 +226,22 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "Calc Botões";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // toolStripButton3
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(34, 28);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // toolStripDropDownButton1
             // 
@@ -246,17 +253,8 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(42, 33);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(42, 28);
             this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // blocoDeNotasToolStripMenuItem
             // 
@@ -276,36 +274,10 @@
             this.nAvegadorWebToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.nAvegadorWebToolStripMenuItem.Text = "NAvegador Web";
             // 
-            // statusStrip1
+            // toolStripSeparator3
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 418);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 32);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(76, 25);
-            this.toolStripStatusLabel1.Text = "Usuario:";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(179, 25);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(108, 25);
-            this.toolStripStatusLabel3.Text = "Data e hora:";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
             // 
             // novoToolStripButton
             // 
@@ -389,16 +361,42 @@
             this.ajudaToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.ajudaToolStripButton.Text = "&Ajuda";
             // 
-            // toolStripSeparator3
+            // statusStrip1
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 680);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1314, 32);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(76, 25);
+            this.toolStripStatusLabel1.Text = "Usuario:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(179, 25);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(108, 25);
+            this.toolStripStatusLabel3.Text = "Data e hora:";
             // 
             // MDI_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1314, 712);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -406,6 +404,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MDI_Menu";
             this.Text = "MDI_Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_Menu_FormClosing);
             this.Load += new System.EventHandler(this.MDI_Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -424,8 +423,6 @@
         private System.Windows.Forms.ToolStripMenuItem calculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comBotõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comRadioButtonsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eSpeciasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visorUnicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem janelasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cascatasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horizontalmenteToolStripMenuItem;
@@ -437,7 +434,6 @@
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
@@ -459,5 +455,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripMenuItem visorUnicoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem novaCalcOneVisioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculadora00ToolStripMenuItem;
     }
 }

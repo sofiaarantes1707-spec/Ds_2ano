@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Calc_bts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calc_bts.Designer.cs">
+      <DependentUpon>Calc_bts.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\MDI_Menu.cs">
       <SubType>Form</SubType>
@@ -60,8 +60,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Calc_bts.resx">
+      <DependentUpon>Calc_bts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\MDI_Menu.resx">
       <DependentUpon>MDI_Menu.cs</DependentUpon>
