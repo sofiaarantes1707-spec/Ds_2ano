@@ -240,7 +240,8 @@
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Text = "Calculadora Radio";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator1
             // 

@@ -102,5 +102,10 @@ namespace Menu_Calculos.Formularios
         {
             OpenChildForm<CalcRadio>(); // ChildForm é o tipo do formulário filho
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm<CalcRadio>(); // ChildForm é o tipo do formulário filho
+        }
     }
 }
