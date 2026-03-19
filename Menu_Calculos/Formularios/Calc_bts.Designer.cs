@@ -73,7 +73,7 @@
             // 
             this.resultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.resultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultado.Location = new System.Drawing.Point(119, 347);
+            this.resultado.Location = new System.Drawing.Point(119, 356);
             this.resultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.resultado.Name = "resultado";
             this.resultado.Size = new System.Drawing.Size(149, 65);
