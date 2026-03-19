@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -107,5 +108,46 @@ namespace Menu_Calculos.Formularios
         {
             OpenChildForm<CalcRadio>(); // ChildForm é o tipo do formulário filho
         }
+
+        private void cascatasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+        
+        }
+
+        private void horizontalmenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("notepad." + "exe");
+        }
+
+        private void vErticalmenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void calculadoraWindownsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc." + "exe");
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void novaCalcOneVisioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
+
+    //variáveis: nuAnterior, nuAtual, tipoOperacao, resultado
+    //programar o teclado, os numeros nas teclas
+    //
 }

@@ -221,7 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(802, 585);
+            this.ClientSize = new System.Drawing.Size(749, 585);
             this.Controls.Add(this.btnParImpar);
             this.Controls.Add(this.btnComparar);
             this.Controls.Add(this.btnDividir);

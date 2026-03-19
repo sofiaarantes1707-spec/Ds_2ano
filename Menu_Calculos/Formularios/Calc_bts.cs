@@ -49,7 +49,8 @@ namespace Menu_Calculos
             }
             else
             {
-                a = double.Parse(textBox1.Text);
+                double v = double.Parse(textBox1.Text);
+                a = v;
                 b = double.Parse(textBox2.Text);
 
                 sinal.Text = "+";

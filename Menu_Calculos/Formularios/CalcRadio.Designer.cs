@@ -138,7 +138,7 @@
             this.resultado.AutoSize = true;
             this.resultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.resultado.Cursor = System.Windows.Forms.Cursors.Default;
-            this.resultado.Location = new System.Drawing.Point(351, 385);
+            this.resultado.Location = new System.Drawing.Point(352, 385);
             this.resultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.resultado.MaximumSize = new System.Drawing.Size(74, 76);
             this.resultado.MinimumSize = new System.Drawing.Size(74, 76);
@@ -206,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(700, 692);
+            this.ClientSize = new System.Drawing.Size(702, 692);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
