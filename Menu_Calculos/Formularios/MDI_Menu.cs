@@ -144,6 +144,13 @@ namespace Menu_Calculos.Formularios
         {
 
         }
+
+        private void visorUnicoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CalculadoraPlus objCalcBot = new CalculadoraPlus();
+            objCalcBot.MdiParent = this;
+            objCalcBot.Show();
+        }
     }
 
 
