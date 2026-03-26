@@ -142,7 +142,7 @@ namespace Menu_Calculos.Formularios
 
         private void novaCalcOneVisioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm<CalculadoraPlus>();
         }
 
         private void visorUnicoToolStripMenuItem1_Click(object sender, EventArgs e)
