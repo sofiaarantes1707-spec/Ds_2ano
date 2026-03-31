@@ -53,6 +53,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.btnIgual = new System.Windows.Forms.Button();
+            this.lblHistorico = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +64,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(577, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(577, 38);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -71,9 +73,9 @@
             this.lblVisor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblVisor.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVisor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblVisor.Location = new System.Drawing.Point(12, 25);
+            this.lblVisor.Location = new System.Drawing.Point(12, 33);
             this.lblVisor.Name = "lblVisor";
-            this.lblVisor.Size = new System.Drawing.Size(553, 61);
+            this.lblVisor.Size = new System.Drawing.Size(553, 53);
             this.lblVisor.TabIndex = 7;
             this.lblVisor.Text = "0";
             this.lblVisor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -371,18 +373,45 @@
             this.btnIgual.UseVisualStyleBackColor = true;
             this.btnIgual.Click += new System.EventHandler(this.bntigual_Click_1);
             // 
+            // lblHistorico
+            // 
+            this.lblHistorico.AutoSize = true;
+            this.lblHistorico.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblHistorico.Location = new System.Drawing.Point(399, 25);
+            this.lblHistorico.Name = "lblHistorico";
+            this.lblHistorico.Size = new System.Drawing.Size(0, 20);
+            this.lblHistorico.TabIndex = 10;
+            this.lblHistorico.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblHistorico.Click += new System.EventHandler(this.f_operacoes);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // CalculadoraPlus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 647);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblHistorico);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblVisor);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnIgual);
+            this.KeyPreview = true;
             this.Name = "CalculadoraPlus";
             this.Text = "CalculadoraPlus";
+            this.Load += new System.EventHandler(this.CalculadoraPlus_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CalculadoraPlus_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -417,5 +446,7 @@
         private System.Windows.Forms.Button btnVirgula;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Label lblHistorico;
+        private System.Windows.Forms.Label label1;
     }
 }
