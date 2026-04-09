@@ -1,0 +1,407 @@
+using System;
+using System.Drawing;
+using System.Globalization;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Menu_Calculos
+{
+    public partial class CalculadoraPlus : Form
+    {
+        decimal vNumAnt;
+        string vOperacao;
+        bool vLimparVisor;
+        decimal vNumAtual;
+        public CalculadoraPlus()
+        {
+            InitializeComponent();
+            // faz com que o Form receba eventos de teclado antes dos controles
+            this.KeyPreview = true;
+        }
+
+        public CalculadoraPlus(bool vLimparVisor)
+        {
+            InitializeComponent();
+            // garante comportamento igual ao construtor padrão
+            this.KeyPreview = true;
+            this.vLimparVisor = vLimparVisor;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // helper assíncrono para "piscar" um botão
+        private async Task FlashButtonAsync(Button btn, Color flashColor, int flashes = 1, int intervalMs = 0)
+        {
+            if (btn == null) return;
+            var original = btn.BackColor;
+            for (int i = 0; i < flashes; i++)
+            {
+                btn.BackColor = flashColor;
+                await Task.Delay(intervalMs);
+                btn.BackColor = original;
+                await Task.Delay(intervalMs);
+            }
+        }
+
+        // agora event handlers são assíncronos para usar FlashButtonAsync
+        private async void f_digitos(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                _ = FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+            }
+
+            string digito = ((Button)sender).Text;
+            if (string.IsNullOrEmpty(lblVisor.Text) || lblVisor.Text == "0" || vLimparVisor)
+            {
+                lblVisor.Text = "";
+                vLimparVisor = false;
+            }
+            lblVisor.Text += digito; // mostra no visor
+
+            // atualiza vNumAtual e o histórico imediatamente com o valor do visor
+            var culture = CultureInfo.CurrentCulture;
+            if (decimal.TryParse(lblVisor.Text, System.Globalization.NumberStyles.Number, culture, out decimal atual))
+            {
+                vNumAtual = atual;
+            }
+
+            // se já existe uma operação selecionada, mantenha o primeiro número + operador no histórico
+            if (!string.IsNullOrEmpty(vOperacao))
+            {
+                lblHistorico.Text = $"{vNumAnt.ToString(culture)} {vOperacao} {lblVisor.Text}";
+            }
+            else
+            {
+                lblHistorico.Text = lblVisor.Text;
+            }
+
+            this.ActiveControl = null;
+            //ou //lblVisor.Focus();
+            //apertar o botao - nao deixar o foco no botão
+            //o enter executa o botao que tem o foco, entao se tiver o foco no botao 1, o enter vai apertar o 1
+        }
+
+        private async void f_operacoes(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                await FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+            }
+
+            // tenta salvar o número atual antes de operar
+            vNumAnt = decimal.Parse(lblVisor.Text);
+            vOperacao = ((Button)sender).Text;
+            vLimparVisor = true; //intrução de atribuição - atribui o valor verdadeiro
+            this.ActiveControl = null;
+            lblHistorico.Text = vNumAnt + " " + vOperacao;
+        }
+
+        private async void btnVirgula_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                _ = FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+
+            // adicionar vírgula apenas se ainda não existir
+            if (!lblVisor.Text.Contains(","))
+            {
+                if (vLimparVisor)
+                {
+                    lblVisor.Text = "";
+                    vLimparVisor = false;
+                }
+                lblVisor.Text += ",";
+            }
+        }
+
+        private async void btnLimpar_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                await FlashButtonAsync(btn, Color.MediumPurple, 1, 120);
+
+            lblHistorico.Text = "";
+            lblVisor.Text = "0";
+            vOperacao = null;
+            vLimparVisor = false;
+        }
+
+
+        private async void btnBack_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                _ = FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+
+            if (lblVisor.Text.Length > 1)
+            {
+                lblVisor.Text = lblVisor.Text.Substring(0, lblVisor.Text.Length - 1);
+            }
+            else
+            {
+                lblVisor.Text = "0";
+            }
+        }
+
+        // CE: apagar somente o último número inserido (apaga o visor atual, mantém operação e histórico)
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                await FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+
+            lblVisor.Text = "0";
+            vLimparVisor = true;
+            // mantemos vNumAnt e vOperacao intactos — CE não limpa a operação completa
+            // opcional: atualizar histórico apenas se desejar refletir a limpeza do visor
+        }
+
+        private void CalculadoraPlus_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVisor_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void CalculadoraPlus_KeyDown(object sender, KeyEventArgs e)
+        {
+            // exibe código da tecla (útil para debug)
+            label1.Text = e.KeyCode.ToString();
+
+            // fechar com ESC
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Digitos: fileira superior (D0..D9)
+            if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
+            {
+                string digit = (e.KeyCode - Keys.D0).ToString();
+                var btn = new Button { Text = digit };
+                f_digitos(btn, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Digitos: Numpad (NumPad0..NumPad9)
+            if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
+            {
+                string digit = (e.KeyCode - Keys.NumPad0).ToString();
+                var btn = new Button { Text = digit };
+                f_digitos(btn, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Vírgula / ponto decimal
+            if (e.KeyCode == Keys.Decimal || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod)
+            {
+                // chama o handler da vírgula (usa o botão do Designer)
+                btnVirgula_Click(btnVirgula, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Operadores: tenta mapear teclas comuns
+            if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Oemplus)
+            {
+                f_operacoes(mais, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.OemMinus)
+            {
+                f_operacoes(menos, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (e.KeyCode == Keys.Multiply)
+            {
+                f_operacoes(multiplicacao, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+            if (e.KeyCode == Keys.Divide || e.KeyCode == Keys.Oem2)
+            {
+                f_operacoes(divisao, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Backspace -> apagar último dígito
+            if (e.KeyCode == Keys.Back)
+            {
+                btnBack_Click(btnBack, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Delete -> CE (limpar visor atual)
+            if (e.KeyCode == Keys.Delete)
+            {
+                button4_Click(button4, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            // Enter/Return -> =
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                bntigual_Click(btnIgual, EventArgs.Empty);
+                e.SuppressKeyPress = true;
+                return;
+            }
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Corrigi o nome do handler para o mesmo que o Designer registra: button21_Click
+        // inverte o sinal do número atualmente mostrado no visor
+        private async void button21_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                await FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+
+            var text = lblVisor.Text?.Trim() ?? "0";
+
+            // evita operar em mensagens de erro
+            if (text.Equals("Erro", StringComparison.OrdinalIgnoreCase) || text == "")
+                return;
+
+            var culture = CultureInfo.CurrentCulture;
+            var styles = System.Globalization.NumberStyles.Number;
+
+            // tenta parse seguro com a cultura corrente (aceita agrupadores e vírgula/ponto conforme cultura)
+            if (decimal.TryParse(text, styles, culture, out decimal valor))
+            {
+                valor = -valor;
+                lblVisor.Text = valor.ToString(culture);
+            }
+            else
+            {
+                // segunda tentativa: normalizar vírgula/ponto e tentar com InvariantCulture
+                var alt = text.Replace(".", culture.NumberFormat.NumberDecimalSeparator)
+                              .Replace(",", culture.NumberFormat.NumberDecimalSeparator);
+                if (decimal.TryParse(alt, styles, culture, out valor))
+                {
+                    valor = -valor;
+                    lblVisor.Text = valor.ToString(culture);
+                }
+                else
+                {
+                    // fallback simples: troca manualmente o sinal no texto
+                    if (text.StartsWith("-"))
+                        lblVisor.Text = text.Substring(1);
+                    else if (text != "0")
+                        lblVisor.Text = "-" + text;
+                }
+            }
+
+            // garante que o visor não será imediatamente sobrescrito
+            vLimparVisor = false;
+        }
+
+        // Botão "=" corrigido: trata operações +, -, x (ou *), / e ^ (potência), valida entradas e divisão por zero.
+        private async void bntigual_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+                _ = FlashButtonAsync(btn, Color.MediumPurple, 1, 100);
+
+            // valida entrada atual
+            if (!decimal.TryParse(lblVisor.Text, out decimal atual))
+            {
+                lblVisor.Text = "Erro";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(vOperacao))
+            {
+                // sem operação selecionada, nada a calcular
+                return;
+            }
+
+            decimal resultado = 0m;
+            try
+            {
+                switch (vOperacao)
+                {
+                    case "+":
+                        resultado = vNumAnt + atual;
+                        break;
+                    case "-":
+                        resultado = vNumAnt - atual;
+                        break;
+                    case "x":
+                    case "X":
+                    case "*":
+                        resultado = vNumAnt * atual;
+                        break;
+                    case "/":
+                        if (atual == 0m)
+                        {
+                            lblVisor.Text = "Erro: /0";
+                            lblHistorico.Text = "";
+                            vOperacao = null;
+                            vLimparVisor = true;
+                            return;
+                        }
+                        resultado = vNumAnt / atual;
+                        break;
+                    case "^":
+                        // usa Math.Pow com conversão para double
+                        resultado = (decimal)Math.Pow((double)vNumAnt, (double)atual);
+                        break;
+                    default:
+                        lblVisor.Text = "Op inválida";
+                        return;
+                }
+
+                lblVisor.Text = resultado.ToString();
+                lblHistorico.Text = $"{vNumAnt} {vOperacao} {atual} =";
+                // prepara para próxima operação: resultado vira número anterior
+                vNumAnt = resultado;
+                vLimparVisor = true;
+                vOperacao = null;
+            }
+            catch (Exception)
+            {
+                lblVisor.Text = "Erro";
+            }
+        }
+
+        private void CalculadoraPlus_KeyUp(object sender, KeyEventArgs e)
+        {
+            foreach (Control botao in this.Controls)
+            {
+                if (botao is Button)
+                {
+                    botao.BackColor = SystemColors.Control; //cor padrão do botão
+                }
+            }
+        }
+        //lblHistorico.Text = vNumAnt + " " + vOperacao + " " + vNumAtual + " " + "=";
+
+        //PESQUISA:pedir para IA fazer esse código e comparar o que ela fez com 
+        //o que fizemos em aula. Em dupla, enviar o git (o video e a pesquisa dentro do
+        //git).
+    }
+}
