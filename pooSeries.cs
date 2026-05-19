@@ -48,7 +48,12 @@ namespace form_19_05
 
         public void Doc()
         {
-            string[] Doctor = new string[18] { "Meredith Grey", "Derek Shepherd", "Cristina Yang", "Alex Karev"," Izzie Stevens", "George OMalley", "Miranda Bailey", "Richard Webber", "Callie Torres", "Arizona Robbins"," Mark Sloan", "Lexie Grey", "Owen Hunt", "Amelia Shepherd", "Jackson Avery", "April Kepner", "Jo Wilson", "Maggie Pierce"};
+            string[] Doctor = new string[18] 
+            { "Meredith Grey", "Derek Shepherd", "Cristina Yang", "Alex Karev",
+                " Izzie Stevens", "George OMalley", "Miranda Bailey", "Richard Webber", 
+                "Callie Torres", "Arizona Robbins"," Mark Sloan", "Lexie Grey", "Owen Hunt", 
+                "Amelia Shepherd", "Jackson Avery", "April Kepner", "Jo Wilson", "Maggie Pierce"
+            };
         }
 
         public void GreysAnatomy()
@@ -56,33 +61,34 @@ namespace form_19_05
             this.name = "Greys anatomy";
             this.Data = 2005;
             this.Descricao = "aojsajsajsoajjda";
-            // this.Doctors = 
+            //this.Doctors = 
             Doc();
             Console.WriteLine(this.Doctors[0]);
         }
         public void NewArmsterdam()
         {
-            this.name = "New Armsterdam";
+            name = "New Armsterdam";
             //InitializeComponent();
         }
 
 
         public void DrHouse()
         {
-            this.name = "Doctor House";
+            name = "Doctor House";
         }
 
 
         public void TheGoodDoctor ()
         {
-            this.name = "The Good Doctor";
+            name = "The Good Doctor";
+            Descricao = "sasasa";
         }
 
 
         public void ER()
         {
-            this.name = "ER";
-            this.Descricao;
+            name = "ER";
+            Descricao = "sasasas";
         }
 
 
