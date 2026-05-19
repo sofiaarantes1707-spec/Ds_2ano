@@ -1,0 +1,470 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Net.Http.Headers;
+
+namespace POO
+{
+    class Apresentacao : Form
+    {
+
+        //atributos: 
+
+        // criar um objeto do artista 
+        Artistas artista01 = new Artistas("Taylor");
+        Artistas artista02 = new Artistas("Gracie");
+        Artistas artista03 = new Artistas("Benson");
+        Artistas artista04 = new Artistas("Olivia");
+        Artistas artista05 = new Artistas("Legião");
+        Artistas artista06 = new Artistas("Raimundos");
+
+        // Objeto
+        //chama métodos do proprio c?
+        PictureBox img = new PictureBox();
+        Label txtNome = new Label();
+        Label txtEstilo = new Label();
+        Label txtNascimento = new Label();
+        Label txtAlbuns = new Label();
+        Label txtPremios = new Label();
+        Label txtMusicaF = new Label();
+
+        Button btobj01 = new Button();
+        Button btobj02 = new Button();
+        Button btobj03 = new Button();
+        Button btobj04 = new Button();
+        Button btobj05 = new Button();
+        Button btobj06 = new Button();
+
+        int Size;
+        string Text;
+        string BackColor;
+        string StartPosition; 
+
+        // toda classe tem um construtor
+        public Apresentacao()
+        {
+            this.Size = new Size(1300, 750);
+            this.Text = "🎵 Sistema de Informações de Artistas 🎵";
+            this.BackColor = Color.FromArgb(25, 25, 35);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            btobj01.Text = " 🎤 Taylor Swift "; //o obj vai se ligar com a propriedade (da classe Button, e que foi herdada de control)
+            btobj01.Location = new Point(50, 50); 
+            btobj01.Size = new Size(160, 45);
+            btobj01.Click += taylor;
+
+            btobj02.Text = " 🎵 Gracie Abrams ";
+            btobj02.Location = new Point(230, 50);
+            btobj02.Size = new Size(160, 45);
+            btobj02.Click += gracie;
+
+            btobj03.Text = " ⭐ Benson Boone ";
+            btobj03.Location = new Point(410, 50);
+            btobj03.Size = new Size(160, 45);
+            btobj03.Click += benson;
+
+            btobj04.Text = " 💜 Olivia Rodrigo ";
+            btobj04.Location = new Point(590, 50);
+            btobj04.Size = new Size(160, 45);
+            btobj04.Click += oliviarodrigo;
+
+            btobj05.Text = " 🎸 Legião Urbana ";
+            btobj05.Location = new Point(770, 50);
+            btobj05.Size = new Size(160, 45);
+            btobj05.Click += legiao;
+
+            btobj06.Text = " 🤘 Raimundos ";
+            btobj06.Location = new Point(950, 50);
+            btobj06.Size = new Size(160, 45);
+            btobj06.Click += raimundos;
+
+            txtMusicaF.AutoSize = false;
+
+            this.Controls.AddRange(new Control[] { txtNome, txtEstilo, txtNascimento,
+                txtAlbuns, txtPremios, txtMusicaF, img, btobj01, btobj02, btobj03,
+            btobj04, btobj05, btobj06});
+
+            AplicarEstilo();
+        }
+
+        // metodo de Evento
+        private void taylor(object sender, EventArgs e)
+        {
+            artista01.Nome = "Taylor Swift";
+            artista01.Nascimento = 1989;
+            artista01.Premios = "14 Grammy Awards,\r\n 40 American Music Awards (AMAs),\r\n " +
+                "49 Billboard Music Awards,\r\n 30 MTV Video Music Awards (VMAs),\r\n " +
+                "41 iHeartRadio Music Awards,\r\n 12 Country Music Association Awards (CMAs),\r\n" +
+                "8 Academy of Country Music Awards (ACM Awards),\r\n 2 Brit Awards, 1 Emmy Award.";
+            artista01.Álbuns = "12 álbuns de estudio";
+            artista01.Estilo = "Pop";
+            artista01.MusicaF = "Shake it Off";
+
+
+            txtNome.Text = " 🎤 Nome : " + artista01.Nome;
+            txtNascimento.Text = " 📅 Ano de nascimento: " + artista01.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista01.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista01.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista01.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista01.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 190);
+            this.txtPremios.Location = new Point(50, 250);
+            this.txtAlbuns.Location = new Point(50, 430);
+            this.txtEstilo.Location = new Point(50, 490);
+            this.txtMusicaF.Location = new Point(50, 550);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 160;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\taylor.jpg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void gracie(object sender, EventArgs e)
+        {
+            artista02.Nome = "Gracie Abrams";
+            artista02.Nascimento = 1999;
+            artista02.Premios = "American Music Awards 2025 — New Artist of the Year\r\n" +
+                "Billboard Women in Music 2025 — Songwriter of the Year\r\n" +
+                "iHeartRadio Music Awards 2024 — Social Star Award\r\n" +
+                "iHeartRadio Music Awards 2025 — Breakthrough Artist of the Year\r\n" +
+                "Swiss Music Awards — Best International Breaking Act";
+            artista02.Álbuns = "2 álbuns de estúdio";
+            artista02.Estilo = "Pop";
+            artista02.MusicaF = "I Love You I'm Sorry";
+
+
+            txtNome.Text = " 🎤 Nome : " + artista02.Nome;
+            txtNascimento.Text = " 📅 Ano de nascimento: " + artista02.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista02.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista02.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista02.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista02.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 190);
+            this.txtPremios.Location = new Point(50, 250);
+            this.txtAlbuns.Location = new Point(50, 400);
+            this.txtEstilo.Location = new Point(50, 460);
+            this.txtMusicaF.Location = new Point(50, 520);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 130;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\Gracie-Abrams-tickets-5504608.jpg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void benson(object sender, EventArgs e)
+        {
+            artista03.Nome = "Benson Boone";
+            artista03.Nascimento = 2003;
+            artista03.Premios = "Billboard Music Awards 2024 — Top Billboard Global 200 Song\r\n" +
+                "Billboard Music Awards 2024 — Top Billboard Global 200 Excl. U.S. Song\r\n" +
+                "iHeartRadio Music Awards 2025 — Song of the Year" +
+                "\r\nMTV Video Music Awards 2024 — Best Alternative" +
+                "\r\nMTV Europe Music Awards 2024 — Best New" +
+                "\r\nLos 40 Music Awards 2024 — Best New Artist" +
+                "\r\nLos 40 Music Awards 2024 — Best Song " +
+                "\r\nNRJ Music Awards 2024 — International Revelation" +
+                "\r\nNRJ Music Awards 2024 — International Song" +
+                "\r\nPremios Odeón 2025 — International New Artist" +
+                "\r\nNickelodeon Kids’ Choice Awards 2025 — Favorite Male Breakout Artist" +
+                "\r\nSwiss Music Awards — Best International Hit";
+            artista03.Álbuns = "1 álbum de estúdio";
+            artista03.Estilo = "Pop";
+            artista03.MusicaF = "Beautiful Things";
+
+
+            txtNome.Text = " 🎤 Nome : " + artista03.Nome;
+            txtNascimento.Text = " 📅 Ano de nascimento: " + artista03.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista03.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista03.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista03.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista03.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 180);
+            this.txtPremios.Location = new Point(50, 230);
+            this.txtAlbuns.Location = new Point(50, 500);
+            this.txtEstilo.Location = new Point(50, 550);
+            this.txtMusicaF.Location = new Point(50, 600);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 260;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\benson.jpg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void oliviarodrigo(object sender, EventArgs e)
+        {
+            artista04.Nome = "Olivia Rodrigo";
+            artista04.Nascimento = 2003;
+            artista04.Premios = "3 Grammys, BRIT Awards, Billboard Music Awards";
+            artista04.Estilo = "Pop";
+            artista04.Álbuns = "2 álbuns de estúdio";
+            artista04.MusicaF = "Drivers License";
+
+            txtNome.Text = " 🎤 Nome : " + artista04.Nome;
+            txtNascimento.Text = " 📅 Ano de nascimento: " + artista04.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista04.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista04.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista04.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista04.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 190);
+            this.txtPremios.Location = new Point(50, 250);
+            this.txtAlbuns.Location = new Point(50, 300);
+            this.txtEstilo.Location = new Point(50, 350);
+            this.txtMusicaF.Location = new Point(50, 400);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 40;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\liv.jpg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void legiao(object sender, EventArgs e)
+        {
+            artista05.Nome = "Legião Urbana";
+            artista05.Nascimento = 1982;
+            artista05.Premios = "Prêmio Sharp de Música — venceu categorias ligadas ao rock nacional\r\n" +
+                "MTV Video Music Brasil (VMB) — homenagens e indicações depois dos anos 90\r\n" +
+                "Diversos discos de: Ouro, Platina e Diamante";
+            artista05.Álbuns = "8 álbuns de estudio";
+            artista05.Estilo = "Rock Nacional";
+            artista05.MusicaF = "Tempo Perdido";
+
+            txtNome.Text = " 🎸 Nome da Banda : " + artista05.Nome;
+            txtNascimento.Text = " 📅 Ano de Criação da Banda: " + artista05.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista05.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista05.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista05.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista05.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 190);
+            this.txtPremios.Location = new Point(50, 250);
+            this.txtAlbuns.Location = new Point(50, 300);
+            this.txtEstilo.Location = new Point(50, 350);
+            this.txtMusicaF.Location = new Point(50, 400);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 40;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\legiao.jpeg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void raimundos(object sender, EventArgs e)
+        {
+            artista06.Nome = "Raimundos";
+            artista06.Nascimento = 1989;
+            artista06.Premios = "MTV Video Music Brasil (VMB): Melhor Banda, Melhor Clipe ,Escolha da Audiência\r\n" +
+                "Vários discos de: Ouro e Platina";
+            artista06.Álbuns = "8 álbuns de estudio";
+            artista06.Estilo = "Rock Nacional";
+            artista06.MusicaF = "Mulher de Fases";
+
+            txtNome.Text = " 🎸 Nome da Banda : " + artista06.Nome;
+            txtNascimento.Text = " 📅 Ano de Criação da Banda: " + artista06.Nascimento;
+            txtPremios.Text = " 🏆 Premios : " + artista06.Premios;
+            txtAlbuns.Text = " 💿 Álbuns : " + artista06.Álbuns;
+            txtEstilo.Text = " 🎵 Estilo : " + artista06.Estilo;
+            txtMusicaF.Text = " 🎶 Musica mais Famosa : " + artista06.MusicaF;
+
+            this.txtNome.Location = new Point(50, 130);
+            this.txtNascimento.Location = new Point(50, 190);
+            this.txtPremios.Location = new Point(50, 250);
+            this.txtAlbuns.Location = new Point(50, 300);
+            this.txtEstilo.Location = new Point(50, 350);
+            this.txtMusicaF.Location = new Point(50, 400);
+
+            // Ajustar altura dos labels com muito texto
+            txtPremios.Height = 40;
+            txtAlbuns.Height = 40;
+            txtEstilo.Height = 40;
+            txtMusicaF.Height = 40;
+            txtNome.Height = 40;
+            txtNascimento.Height = 40;
+
+            // COLOCAR IMAGEM
+            try
+            {
+                img.Image = Image.FromFile(@"C:\Users\LENOVO\Documents\POO_\POO_\IMG\Raimundos.jpg");
+                img.SizeMode = PictureBoxSizeMode.Zoom;
+                img.Width = 350;
+                img.Height = 350;
+                this.img.Location = new Point(850, 130);
+            }
+            catch
+            {
+                img.Image = null;
+                img.BackColor = Color.FromArgb(50, 50, 60);
+            }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Apresentacao
+            // 
+            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Name = "Apresentacao";
+            this.Load += new System.EventHandler(this.Apresentacao_Load);
+            this.ResumeLayout(false);
+        }
+
+        private void Apresentacao_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AplicarEstilo()
+        {
+            this.BackColor = Color.FromArgb(25, 25, 35);
+
+            Button[] botoes = { btobj01, btobj02, btobj03, btobj04, btobj05, btobj06 };
+            foreach (var bt in botoes)
+            {
+                bt.BackColor = Color.FromArgb(52, 152, 219);
+                bt.ForeColor = Color.White;
+                bt.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                bt.FlatStyle = FlatStyle.Flat;
+                bt.FlatAppearance.BorderSize = 0;
+                bt.Cursor = Cursors.Hand;
+                bt.TextAlign = ContentAlignment.MiddleLeft;
+            }
+
+            // Cores diferentes para cada botão
+            btobj01.BackColor = Color.FromArgb(231, 76, 60);
+            btobj02.BackColor = Color.FromArgb(155, 89, 182);
+            btobj03.BackColor = Color.FromArgb(46, 204, 113);
+            btobj04.BackColor = Color.FromArgb(241, 196, 15);
+            btobj05.BackColor = Color.FromArgb(230, 126, 34);
+            btobj06.BackColor = Color.FromArgb(142, 68, 173);
+
+            Label[] labels = { txtNome, txtEstilo, txtNascimento, txtAlbuns, txtPremios, txtMusicaF };
+            foreach (var lbl in labels)
+            {
+                lbl.Font = new Font("Segoe UI", 11, FontStyle.Regular);
+                lbl.ForeColor = Color.FromArgb(236, 240, 241);
+                lbl.BackColor = Color.FromArgb(40, 40, 50);
+                lbl.Padding = new Padding(10, 8, 10, 8);
+                lbl.Width = 750;
+                lbl.AutoSize = false;
+            }
+
+            // Estilos específicos para cada label
+            txtNome.BackColor = Color.FromArgb(52, 73, 94);
+            txtNome.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            txtPremios.BackColor = Color.FromArgb(192, 57, 43);
+            txtAlbuns.BackColor = Color.FromArgb(41, 128, 185);
+            txtEstilo.BackColor = Color.FromArgb(39, 174, 96);
+            txtMusicaF.BackColor = Color.FromArgb(142, 68, 173);
+            txtNascimento.BackColor = Color.FromArgb(211, 84, 0);
+
+            img.BorderStyle = BorderStyle.FixedSingle;
+            img.SizeMode = PictureBoxSizeMode.Zoom;
+            img.BackColor = Color.FromArgb(50, 50, 60);
+            img.Width = 350;
+            img.Height = 350;
+        }
+    }
+}
