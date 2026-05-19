@@ -11,7 +11,6 @@ namespace POO
 {
     class Apresentacao : Form
     {
-
         //atributos: 
 
         // criar um objeto do artista 
@@ -21,7 +20,6 @@ namespace POO
         Artistas artista04 = new Artistas("Olivia");
         Artistas artista05 = new Artistas("Legião");
         Artistas artista06 = new Artistas("Raimundos");
-
         // Objeto
         //chama métodos do proprio c?
         PictureBox img = new PictureBox();
@@ -38,11 +36,6 @@ namespace POO
         Button btobj04 = new Button();
         Button btobj05 = new Button();
         Button btobj06 = new Button();
-
-        int Size;
-        string Text;
-        string BackColor;
-        string StartPosition; 
 
         // toda classe tem um construtor
         public Apresentacao()
